@@ -1,0 +1,75 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #020617; /* Changed to a very dark slate blue for dark mode */
+    color: #e2e8f0; /* Light Slate Gray */
+}
+
+/* Glassmorphism effect for the header */
+.glass-header {
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+    @apply text-3xl md:text-4xl font-bold text-white mb-12 text-center;
+}
+
+/* Glassmorphism effect for cards */
+.card {
+    /* Base gradient and blur for glassmorphism */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    
+    /* Add a subtle inner glow (teal) and a more controlled outer shadow */
+    box-shadow: inset 0 0 15px rgba(84, 230, 192, 0.1), /* Inner glow (using a slightly transparent teal color) */
+                0 4px 10px rgba(0, 0, 0, 0.2); /* Initial subtle outer shadow */
+    
+    /* Apply base Tailwind classes for rounded corners, overflow, and transitions */
+    @apply rounded-xl overflow-hidden transform transition-all duration-300;
+}
+
+/* Styles for when the card is hovered */
+.card:hover {
+    /* Enhanced inner glow and stronger outer shadow on hover */
+    box-shadow: inset 0 0 20px rgba(84, 230, 192, 0.2), /* Stronger inner glow on hover */
+                0 8px 20px rgba(0, 0, 0, 0.3); /* More pronounced outer shadow on hover */
+    
+    /* Apply hover specific Tailwind classes for scaling, border color, and slight lift */
+    @apply scale-[1.03] border-teal-400 -translate-y-1; /* Slightly less aggressive scale, border change, subtle upward lift */
+}
+
+.btn {
+    @apply inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform;
+}
+
+.btn-primary {
+    @apply bg-teal-500 text-gray-900 hover:bg-teal-400 hover:shadow-lg hover:shadow-teal-500/50 hover:-translate-y-1;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid #5eead4; /* Light Teal */
+    color: #5eead4;
+    @apply hover:bg-teal-500 hover:text-gray-900 hover:border-teal-500;
+}
+
+/* Gradient text */
+.gradient-text {
+    @apply bg-gradient-to-r from-teal-400 to-cyan-500 text-transparent bg-clip-text;
+}
+
+/* Scroll-triggered animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
